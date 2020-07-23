@@ -1,8 +1,3 @@
-// import App from './App';
+import App from './components/app/app';
 
-ReactDOM.render(
-  <div>
-    <p>welcome</p>
-  </div>,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
