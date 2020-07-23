@@ -6,7 +6,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-input-mask": "2.0.4",
-    "react-scripts": "3.4.1",
     "react-yandex-maps": "4.4.0"
   },
   "scripts": {

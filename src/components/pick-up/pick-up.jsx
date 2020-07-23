@@ -2,17 +2,20 @@ import Inputmask from 'react-input-mask';
 
 const PickUpExpress = () => {
   return (
-    <div className="">
-      <button>Delivery</button>
-      <button>Pick-up</button>
-      <div>
-        <input type="text" name="fullName" placeholder="Only Cyrillic" />
+    <div className="main__pick-up pick-up-form">
+      <div className="pick-up-form__field-wrapper">
+        <input
+          className="pick-up-form__field-name"
+          type="text"
+          name="fullName"
+          placeholder="Only Cyrillic"
+        />
       </div>
-      <div>
+      <div className="pick-up-form__field-wrapper">
         <Inputmask
           mask="+7 (999) 999-99-99"
           maskChar=""
-          className="main__form-input"
+          className="pick-up-form__field-phone"
           placeholder="+7 (___) ___-__-__"
           //   onChange={(evt) => {
           //     const isPhoneValid = validatePhone(evt.target.value);
@@ -20,10 +23,17 @@ const PickUpExpress = () => {
           //   }}
         />
       </div>
-      <div>
-        <textarea name="comments" cols="30" rows="10"></textarea>
+      <div className="pick-up-form__field-wrapper">
+        <textarea
+          className="pick-up-form__field-comments"
+          name="comments"
+          cols="30"
+          rows="10"
+        ></textarea>
       </div>
-      <button>Сheckout</button>
+      <button className="pick-up-form__field-submit" type="button">
+        Сheckout
+      </button>
     </div>
   );
 };
