@@ -25,3 +25,21 @@ export const mapMarkers = [
   'islands#blueCircleIcon',
   'islands#darkBlueCircleIcon',
 ];
+
+export const validateName = (name) => {
+  const lowerCaseLetters = /[a-z]/g;
+  const upperCaseLetters = /[A-Z]/g;
+  const numbers = /[0-9]/g;
+  const symbols = /[^a-zA-Z0-9]/g;
+
+  const isLowerLetters = name.match(lowerCaseLetters);
+  const isUpperLetters = name.match(upperCaseLetters);
+  const isNumbers = name.match(numbers);
+  const isSymbols = name.match(symbols);
+
+  if (isNumbers || isSymbols) {
+    return false;
+  }
+
+  return true;
+};

@@ -93,22 +93,30 @@ main {
   width: 100%;
 }
 
-.pick-up-form__field-name,
-.pick-up-form__field-phone,
-.pick-up-form__field-adress,
-.pick-up-form__field-comments {
+.pick-up-form__field--error {
+  border: 1px solid red;
+
+  &:focus {
+    outline: 1px solid red;
+  }
+}
+
+.pick-up-form__field--name,
+.pick-up-form__field--phone,
+.pick-up-form__field--adress,
+.pick-up-form__field--comments {
   padding: 3px 10px;
   box-sizing: border-box;
   flex-grow: 1;
 }
 
-.pick-up-form__field-comments {
+.pick-up-form__field--comments {
   padding: 10px;
 
   height: 100px;
 }
 
-.pick-up-form__field-name {
+.pick-up-form__field--name {
   margin-right: 20px;
 }
 
@@ -136,6 +144,14 @@ main {
   &:active {
     background-color: rgba(191, 191, 191, 1);
     color: grey;
+  }
+}
+
+.pick-up-form__field-submit--blocked {
+  background-color: rgba(191, 191, 191, 1);
+
+  &:hover {
+    background-color: rgba(191, 191, 191, 1);
   }
 }
 

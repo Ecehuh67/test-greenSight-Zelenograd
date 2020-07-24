@@ -4,7 +4,8 @@ import Delivery from '../delivery/delivery';
 import { points } from '../../consts';
 
 const App = () => {
-  const [isPickUp, setPickUp] = React.useState(true);
+  const [isPickUp, setPickUp] = React.useState(false);
+  const [isFormValid, setValidForm] = React.useState(false);
 
   return (
     <main className="main html-wrapper">
@@ -36,7 +37,7 @@ const App = () => {
           >
             Pick-up
           </button>
-          {!isPickUp && <Delivery />}
+          {!isPickUp && <Delivery isButtonActive={isFormValid} />}
           {isPickUp && <PickUpExpress points={points} />}
         </div>
       </section>
