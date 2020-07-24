@@ -1,4 +1,5 @@
 import { YMaps, Map, Placemark } from 'react-yandex-maps';
+import { mapMarkers } from '../../consts';
 
 const PickUp = ({ points }) => {
   return (
@@ -22,21 +23,31 @@ const PickUp = ({ points }) => {
         <YMaps>
           <Map
             defaultState={{
-              center: [55.75, 37.57],
-              zoom: 10,
+              bounds: points.map(
+                (point) => new Array(point.coords.x, point.coords.y)
+              ),
+              behaviors: ['default'],
             }}
             style={{
               width: '650px',
               height: '350px',
             }}
           >
-            {points.map((point) => {
+            {points.map((point, i) => {
               return (
                 <Placemark
                   key={Math.random() * new Date()}
                   geometry={{
                     coordinates: new Array(point.coords.x, point.coords.y),
                     type: 'Point',
+                  }}
+                  defaultProperties={{
+                    iconContent: i + 1,
+                  }}
+                  defaultOptions={{
+                    preset:
+                      mapMarkers[Math.floor(Math.random() * mapMarkers.length)],
+                    hasHint: true,
                   }}
                 />
               );
