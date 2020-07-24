@@ -2,7 +2,7 @@ import Inputmask from 'react-input-mask';
 
 const PickUpExpress = () => {
   return (
-    <div className="main__pick-up pick-up-form">
+    <form className="main__pick-up pick-up-form">
       <div className="pick-up-form__field-wrapper">
         <input
           className="pick-up-form__field-name"
@@ -24,6 +24,14 @@ const PickUpExpress = () => {
         />
       </div>
       <div className="pick-up-form__field-wrapper">
+        <input
+          className="pick-up-form__field-adress"
+          type="text"
+          name="fullName"
+          placeholder="City, street, apart number"
+        />
+      </div>
+      <div className="pick-up-form__field-wrapper">
         <textarea
           className="pick-up-form__field-comments"
           name="comments"
@@ -34,7 +42,7 @@ const PickUpExpress = () => {
       <button className="pick-up-form__field-submit" type="button">
         Сheckout
       </button>
-    </div>
+    </form>
   );
 };
 

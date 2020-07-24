@@ -28,9 +28,113 @@ main {
 
 .main__change-button {
   position: absolute;
-  top: -30px;
+  top: -40px;
+
+  width: 120px;
+  height: 40px;
+
+  border: none;
+  outline: none;
+  background-color: #fff;
+  color: blue;
 }
 
 .main__change-button--right {
-  left: 100px;
+  left: 125px;
+}
+
+.main__change-button--active {
+  color: grey;
+  background-color: rgba(232, 232, 232, 1);
+}
+
+.main__pick-up {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  padding: 35px 20px;
+  box-sizing: border-box;
+}
+
+.pick-up-form__field-wrapper {
+  display: flex;
+  position: relative;
+  margin-bottom: 45px;
+
+  width: 50%;
+
+  &::before {
+    position: absolute;
+    top: -25px;
+    left: 0px;
+    color: black;
+  }
+
+  &:first-of-type::before {
+    content: 'Name';
+  }
+
+  &:nth-of-type(2)::before {
+    content: 'Phone';
+  }
+
+  &:nth-of-type(3)::before {
+    content: 'Adress';
+  }
+
+  &:nth-of-type(4)::before {
+    content: 'Comments';
+  }
+}
+
+.pick-up-form__field-wrapper:nth-of-type(3),
+.pick-up-form__field-wrapper:nth-of-type(4) {
+  width: 100%;
+}
+
+.pick-up-form__field-name,
+.pick-up-form__field-phone,
+.pick-up-form__field-adress,
+.pick-up-form__field-comments {
+  padding: 3px 10px;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+
+.pick-up-form__field-comments {
+  padding: 10px;
+
+  height: 100px;
+}
+
+.pick-up-form__field-name {
+  margin-right: 20px;
+}
+
+.pick-up-form__field-submit {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+
+  width: 150px;
+  height: 35px;
+
+  border: none;
+  outline: none;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: rgba(65, 131, 215, 1);
+  color: #fff;
+
+  &:hover {
+    background-color: rgba(31, 58, 147, 1);
+  }
+
+  &:active {
+    background-color: rgba(191, 191, 191, 1);
+    color: grey;
+  }
 }
