@@ -1,49 +1,51 @@
-import Inputmask from 'react-input-mask';
+import { YMaps, Map, Placemark } from 'react-yandex-maps';
 
-const PickUpExpress = () => {
+const PickUp = ({ points }) => {
   return (
-    <form className="main__pick-up pick-up-form">
-      <div className="pick-up-form__field-wrapper">
-        <input
-          className="pick-up-form__field-name"
-          type="text"
-          name="fullName"
-          placeholder="Only Cyrillic"
-        />
+    <>
+      <div className="main__form-wrapper">
+        <ul className="main__form-points-list points-list">
+          {points.map((point) => {
+            return (
+              <li
+                key={Math.random() * new Date()}
+                className="points-list__item"
+              >
+                <input type="checkbox" />
+                <p>{`${point.prefix} ${point.title}`}</p>
+              </li>
+            );
+          })}
+        </ul>
       </div>
-      <div className="pick-up-form__field-wrapper">
-        <Inputmask
-          mask="+7 (999) 999-99-99"
-          maskChar=""
-          className="pick-up-form__field-phone"
-          placeholder="+7 (___) ___-__-__"
-          //   onChange={(evt) => {
-          //     const isPhoneValid = validatePhone(evt.target.value);
-          //     changeState('phone', isPhoneValid, evt.target.value, setFormFields);
-          //   }}
-        />
+      <div className="main__map">
+        <YMaps>
+          <Map
+            defaultState={{
+              center: [55.75, 37.57],
+              zoom: 10,
+            }}
+            style={{
+              width: '650px',
+              height: '350px',
+            }}
+          >
+            {points.map((point) => {
+              return (
+                <Placemark
+                  key={Math.random() * new Date()}
+                  geometry={{
+                    coordinates: new Array(point.coords.x, point.coords.y),
+                    type: 'Point',
+                  }}
+                />
+              );
+            })}
+          </Map>
+        </YMaps>
       </div>
-      <div className="pick-up-form__field-wrapper">
-        <input
-          className="pick-up-form__field-adress"
-          type="text"
-          name="fullName"
-          placeholder="City, street, apart number"
-        />
-      </div>
-      <div className="pick-up-form__field-wrapper">
-        <textarea
-          className="pick-up-form__field-comments"
-          name="comments"
-          cols="30"
-          rows="10"
-        ></textarea>
-      </div>
-      <button className="pick-up-form__field-submit" type="button">
-        Сheckout
-      </button>
-    </form>
+    </>
   );
 };
 
-export default PickUpExpress;
+export default PickUp;
