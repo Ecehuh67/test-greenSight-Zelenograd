@@ -1,3 +1,9 @@
+const MIN_LENGTHS = {
+  phone: 16,
+  adress: 15,
+  comments: 10,
+};
+
 export const points = [
   {
     title: 'Peschanay st, 13',
@@ -27,19 +33,61 @@ export const mapMarkers = [
 ];
 
 export const validateName = (name) => {
-  const lowerCaseLetters = /[a-z]/g;
-  const upperCaseLetters = /[A-Z]/g;
-  const numbers = /[0-9]/g;
-  const symbols = /[^a-zA-Z0-9]/g;
+  const isRightSigns = /^[A-ZА-ЯЁ\s-]+$/i;
 
-  const isLowerLetters = name.match(lowerCaseLetters);
-  const isUpperLetters = name.match(upperCaseLetters);
-  const isNumbers = name.match(numbers);
-  const isSymbols = name.match(symbols);
+  if (name.match(isRightSigns)) {
+    return true;
+  }
 
-  if (isNumbers || isSymbols) {
+  return false;
+};
+
+export const formFields = ['name', 'phone', 'adress', 'comments'];
+
+export const changeState = (field, bool, value, cb) => {
+  if (bool) {
+    cb((prev) => {
+      return {
+        ...prev,
+        [field]: {
+          isValid: true,
+          value,
+        },
+      };
+    });
+  } else {
+    cb((prev) => {
+      return {
+        ...prev,
+        [field]: {
+          isValid: false,
+          value,
+        },
+      };
+    });
+  }
+};
+
+export const validatePhone = (phoneNumber) => {
+  const value = phoneNumber.replace(/\s/g, '');
+
+  if (value.length < MIN_LENGTHS.phone) {
     return false;
   }
 
+  return true;
+};
+
+export const validateAdress = (adress) => {
+  if (adress.length < MIN_LENGTHS.adress) {
+    return false;
+  }
+  return true;
+};
+
+export const validateComment = (comment) => {
+  if (comment.length < MIN_LENGTHS.comments) {
+    return false;
+  }
   return true;
 };

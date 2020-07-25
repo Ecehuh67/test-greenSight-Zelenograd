@@ -1,11 +1,13 @@
 import '../../less/style.less';
-import PickUpExpress from '../pick-up/pick-up';
+import PickUp from '../pick-up/pick-up';
 import Delivery from '../delivery/delivery';
 import { points } from '../../consts';
 
 const App = () => {
   const [isPickUp, setPickUp] = React.useState(false);
-  const [isFormValid, setValidForm] = React.useState(false);
+  const [userData, setUserData] = React.useState(null);
+
+  // Here we can use User's form data for smth......
 
   return (
     <main className="main html-wrapper">
@@ -37,8 +39,8 @@ const App = () => {
           >
             Pick-up
           </button>
-          {!isPickUp && <Delivery isButtonActive={isFormValid} />}
-          {isPickUp && <PickUpExpress points={points} />}
+          {!isPickUp && <Delivery changeHandler={setUserData} />}
+          {isPickUp && <PickUp points={points} />}
         </div>
       </section>
     </main>
