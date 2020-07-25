@@ -22,15 +22,13 @@ const PickUp = ({ points }) => {
       <div className="main__map">
         <YMaps>
           <Map
+            className="main__map-container"
             defaultState={{
               bounds: points.map(
+                // eslint-disable-next-line no-array-constructor
                 (point) => new Array(point.coords.x, point.coords.y)
               ),
               behaviors: ['default'],
-            }}
-            style={{
-              width: '650px',
-              height: '350px',
             }}
           >
             {points.map((point, i) => {
@@ -38,6 +36,7 @@ const PickUp = ({ points }) => {
                 <Placemark
                   key={Math.random() * new Date()}
                   geometry={{
+                    // eslint-disable-next-line no-array-constructor
                     coordinates: new Array(point.coords.x, point.coords.y),
                     type: 'Point',
                   }}

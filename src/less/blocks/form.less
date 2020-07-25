@@ -26,6 +26,11 @@ main {
   background: #fff;
 }
 
+.main__map-container {
+  width: 650px;
+  height: 350px;
+}
+
 .main__change-button {
   position: absolute;
   top: -40px;
@@ -179,4 +184,130 @@ main {
   width: 100%;
 
   padding: 30px;
+}
+
+@media (max-width: @tablet-width) {
+  main {
+    width: 300px;
+  }
+
+  .main__section {
+    padding: 15px;
+  }
+
+  .main__change-button {
+    width: 130px;
+  }
+
+  .main__change-button--right {
+    left: 140px;
+  }
+
+  .main__pick-up {
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px 15px;
+  }
+
+  .pick-up-form__field-wrapper {
+    width: 80%;
+  }
+
+  .pick-up-form__field-wrapper:nth-of-type(3),
+  .pick-up-form__field-wrapper:nth-of-type(4) {
+    width: 80%;
+  }
+  .pick-up-form__field {
+    min-height: 50px;
+
+    &::placeholder {
+      font-size: 15px;
+    }
+  }
+
+  .pick-up-form__error-icon {
+    right: 10px;
+    top: 12px;
+  }
+
+  .pick-up-form__field-submit {
+    right: 40px;
+
+    width: 80%;
+  }
+
+  .main__map-container {
+    width: 200px;
+    height: 400px;
+  }
+}
+
+@media (min-width: @desktop-width) {
+  main {
+    width: 1200px;
+  }
+
+  .main__title {
+    text-align: center;
+  }
+
+  .main__section {
+    padding: 45px;
+  }
+
+  .main__change-button {
+    width: 200px;
+
+    font-size: 25px;
+  }
+
+  .main__change-button--right {
+    left: 200px;
+  }
+
+  .main__map-container {
+    width: 1050px;
+    height: 700px;
+  }
+
+  .main__pick-up {
+    padding: 45px 35px;
+
+    width: 1100px;
+  }
+
+  .pick-up-form__field-wrapper {
+    width: 50%;
+  }
+
+  .pick-up-form__field-wrapper:nth-of-type(3),
+  .pick-up-form__field-wrapper:nth-of-type(4) {
+    width: 100%;
+  }
+
+  .pick-up-form__field-wrapper:nth-of-type(4) {
+    min-height: 200px;
+  }
+
+  .pick-up-form__field.pick-up-form__field:last-child {
+    margin-bottom: 50px;
+
+    min-height: 200px;
+  }
+
+  .pick-up-form__field {
+    min-height: 60px;
+
+    &::placeholder {
+      font-size: 20px;
+    }
+  }
+
+  .pick-up-form__field-submit {
+    right: 40px;
+
+    width: 30%;
+    height: 50px;
+  }
 }

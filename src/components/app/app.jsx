@@ -5,6 +5,7 @@ import { points } from '../../consts';
 
 const App = () => {
   const [isPickUp, setPickUp] = React.useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [userData, setUserData] = React.useState(null);
 
   // Here we can use User's form data for smth......
@@ -16,6 +17,7 @@ const App = () => {
         <h2 className="main__title">Choose way of delivery</h2>
         <div className="main__form">
           <button
+            type="button"
             className={
               isPickUp
                 ? 'main__change-button main__change-button--active'
@@ -28,6 +30,7 @@ const App = () => {
             Delivery
           </button>
           <button
+            type="button"
             className={`${
               !isPickUp
                 ? 'main__change-button main__change-button--active'

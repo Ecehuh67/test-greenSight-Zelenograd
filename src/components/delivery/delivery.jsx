@@ -36,7 +36,7 @@ const Delivery = ({ changeHandler }) => {
           name="fullName"
           placeholder="Only Cyrillic"
           onChange={(evt) => {
-            const value = evt.target.value;
+            const { value } = evt.target;
             const isValid = validateName(value);
             changeState('name', isValid, value, setFields);
           }}
@@ -62,7 +62,7 @@ const Delivery = ({ changeHandler }) => {
           }`}
           placeholder="+7 (___) ___-__-__"
           onChange={(evt) => {
-            const value = evt.target.value;
+            const { value } = evt.target;
             const isValid = validatePhone(value);
             changeState('phone', isValid, value, setFields);
           }}
@@ -88,7 +88,7 @@ const Delivery = ({ changeHandler }) => {
           name="fullName"
           placeholder="City, street, apart number"
           onChange={(evt) => {
-            const value = evt.target.value;
+            const { value } = evt.target;
             const isValid = validateAdress(value);
             changeState('adress', isValid, value, setFields);
           }}
@@ -107,7 +107,6 @@ const Delivery = ({ changeHandler }) => {
       </div>
       <div className="pick-up-form__field-wrapper">
         <textarea
-          // className="pick-up-form__field--comments pick-up-form__field"
           className={`pick-up-form__field--comments pick-up-form__field ${
             fields.comments.isValid === false
               ? 'pick-up-form__field--error'
@@ -117,11 +116,11 @@ const Delivery = ({ changeHandler }) => {
           cols="30"
           rows="10"
           onChange={(evt) => {
-            const value = evt.target.value;
+            const { value } = evt.target;
             const isValid = validateComment(value);
             changeState('comments', isValid, value, setFields);
           }}
-        ></textarea>
+        />
       </div>
       <button
         className={
