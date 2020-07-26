@@ -6,14 +6,16 @@ const PickUp = ({ points }) => {
     <>
       <div className="main__form-wrapper">
         <ul className="main__form-points-list points-list">
-          {points.map((point) => {
+          {points.map((point, i) => {
             return (
               <li
                 key={Math.random() * new Date()}
                 className="points-list__item"
               >
-                <input type="checkbox" />
-                <p>{`${point.prefix} ${point.title}`}</p>
+                <input type="checkbox" id={`point${i}`} />
+                <label
+                  htmlFor={`point${i}`}
+                >{`${point.prefix} ${point.title}`}</label>
               </li>
             );
           })}

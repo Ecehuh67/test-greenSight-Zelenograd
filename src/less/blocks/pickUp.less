@@ -18,5 +18,26 @@
 
   & > input {
     margin-right: 10px;
+    cursor: pointer;
+  }
+
+  & > label {
+    cursor: pointer;
+  }
+
+  &:hover {
+    color: blue;
+  }
+}
+
+@media (min-width: @desktop-width) {
+  .main__form-points-list {
+    justify-content: flex-start;
+
+    margin-top: 20px;
+  }
+
+  .points-list__item {
+    margin-right: 20px;
   }
 }
